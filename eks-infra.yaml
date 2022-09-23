@@ -4,7 +4,9 @@ Parameters:
   EnvironmentName:
     Description: An environment name that is prefixed to resource names
     Type: String
-
+  ProductOwnerEmail:
+    Description: Email id of the product owner
+    Type: String
   VpcCIDR:
     Description: Please enter the IP range (CIDR notation) for this VPC
     Type: String
@@ -56,7 +58,7 @@ Resources:
       Tags:
         - Key: Name
           Value: !Ref EnvironmentName
-        - Key: !Join ["/",[kubernetes.io/cluster,!Ref EKSClusterName]]
+        - Key: !Join ["/",[kubernetes.io/cluster,!Ref ClusterName]]
           Value: owned
 
   InternetGateway:
@@ -82,7 +84,7 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName} Public Subnet (AZ1)
-        - Key: !Join ["/",[kubernetes.io/cluster,!Ref EKSClusterName]]
+        - Key: !Join ["/",[kubernetes.io/cluster,!Ref ClusterName]]
           Value: owned
 
   PublicSubnet2:
@@ -95,7 +97,7 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName} Public Subnet (AZ2)
-        - Key: !Join ["/",[kubernetes.io/cluster,!Ref EKSClusterName]]
+        - Key: !Join ["/",[kubernetes.io/cluster,!Ref ClusterName]]
           Value: owned
 
   PrivateSubnet1:
@@ -108,7 +110,7 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName} Private Subnet (AZ1)
-        - Key: !Join ["/",[kubernetes.io/cluster,!Ref EKSClusterName]]
+        - Key: !Join ["/",[kubernetes.io/cluster,!Ref ClusterName]]
           Value: owned
 
   PrivateSubnet2:
@@ -121,7 +123,7 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName} Private Subnet (AZ2)
-        - Key: !Join ["/",[kubernetes.io/cluster,!Ref EKSClusterName]]
+        - Key: !Join ["/",[kubernetes.io/cluster,!Ref ClusterName]]
           Value: owned
 
   NatGateway1EIP:
@@ -264,7 +266,7 @@ Resources:
     Properties:
       GroupDescription: Security group for master plane of the cluster
       GroupName: !Sub "${ClusterName}-control-plane-security-group"
-      VpcId: !Ref VpcId
+      VpcId: !Ref VPC
       Tags:
         - Key: "Product"
           Value: !Ref Product
@@ -277,7 +279,7 @@ Resources:
     Properties:
       GroupDescription: Security group for all nodes in the cluster
       GroupName: !Sub "${ClusterName}-workers-security-group"
-      VpcId: !Ref VpcId
+      VpcId: !Ref VPC
       Tags:
         - Key: !Sub "kubernetes.io/cluster/${ClusterName}"
           Value: owned
@@ -391,7 +393,3 @@ Outputs:
   EKSCluster:
     Description: Description about EKSCluster 
     Value: !Ref EKSCluster
-
-
-
-

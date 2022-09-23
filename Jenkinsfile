@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    git 'https://github.com/argadepp/cloudFormation-Infra.git'
+    
 
     environment {
 
@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                
+                git 'https://github.com/argadepp/cloudFormation-Infra.git'
                 
             }
         }

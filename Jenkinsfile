@@ -4,7 +4,7 @@ pipeline {
     
 
     environment {
-
+     account = setAccountName(params.application_account, params.environment)
     }
 
      parameters {

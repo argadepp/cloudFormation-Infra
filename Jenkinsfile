@@ -28,6 +28,14 @@ pipeline {
          string(name: 'templateUrl',defaultValue: 'https://cf-templates-nxd3fz7ymt6h-ap-south-1.s3.ap-south-1.amazonaws.com/launch-template.yaml')
     }  
     stages {
+          stage('Install-aws-cli') {
+            steps {
+                
+              sh 'sudo apt update'
+              sh 'sudo apt install awscli -y'  
+              sh 'echo "AWSCLI Installed Successfully"'  
+            }
+        }
         stage('Infra-Creation') {
             steps {
                 

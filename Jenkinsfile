@@ -33,7 +33,7 @@ pipeline {
             steps {
                 
                withAWS(credentials: 'AWS_Cred' , region: 'ap-south-1') {
-                   sh(script: '${env.WORKSPACE}/createstack.sh --stack-name "${stackName}"' ) 
+                   sh(script: `${env.WORKSPACE}/createstack.sh --stack-name "${stackName}"` ) 
               }
                }
             }

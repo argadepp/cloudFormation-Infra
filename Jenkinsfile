@@ -31,9 +31,9 @@ pipeline {
         
         stage('Infra-Creation') {
             steps {
-               sh "chmod +x ${env.WORKSPACE}/createstack.sh"
+               
                withAWS(credentials: 'AWS_Cred' , region: 'ap-south-1') {
-                   sh(script: "${env.WORKSPACE}/createstack.sh --stack-name test" ) 
+                   sh 'aws cloudformation create-stack \  --stack-name "${stackName}" \ --region "${aws_region}" \  --template-body "${WORKSPACE}\infra.yaml" \ --parameters "${WORKSPACE}\parameters.json.tmpl" \    --capabilities CAPABILITY_NAMED_IAM'
               }
                }
             }

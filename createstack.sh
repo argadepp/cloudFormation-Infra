@@ -24,8 +24,8 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 cd "${artifacts_dir}"
 
-eks_control_plane_template_uri="file://${job_root_dir}/Kubernetes/eks-templates/eks-control-plane.yaml"
-parameters_file_path="${job_root_dir}/Kubernetes/eks-templates/parameters.json"
+eks_control_plane_template_uri="file://${job_root_dir}/infra.yaml"
+parameters_file_path="${job_root_dir}/parameters.json"
 parameters_file_uri="file://${parameters_file_path}"
 
 export key_name="${account}"

@@ -33,8 +33,8 @@ pipeline {
             steps {
                 
                withAWS(credentials: 'AWS_Cred' , region: 'ap-south-1') {
-                
-               sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters   ParameterKey=EnvironmentName,ParameterValue="${environment}"  ParameterKey=VpcCIDR,ParameterValue="${vpcCIDR}"  ParameterKey=PublicSubnet1CIDR,ParameterValue="${PublicSubnet1CIDR}"  ParameterKey=PublicSubnet2CIDR,ParameterValue="${PublicSubnet2CIDR}"   ParameterKey=PrivateSubnet1CIDR,ParameterValue="${PrivateSubnet1CIDR}"  ParameterKey=PrivateSubnet2CIDR,ParameterValue="${PrivateSubnet2CIDR}"  ParameterKey=ClusterName,ParameterValue="${ClusterName}"  ParameterKey=ClusterVersion,ParameterValue="${ClusterVersion}"  ParameterKey=Product,ParameterValue="${Product}"  ParameterKey=ApplicationName,ParameterValue="${ApplicationName}" ParameterKey=ProductOwnerEmail,ParameterValue="${ProductOwnerEmail}" ParameterKey=ImageAmi,ParameterValue="${nodeAmiId}" --capabilities CAPABILITY_NAMED_IAM'
+                   sh(script: "${env.WORKSPACE}/createstack.sh --stack-name ${stackName}" ) 
+              }
                }
             }
         }

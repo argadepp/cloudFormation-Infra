@@ -31,7 +31,7 @@ pipeline {
         
         stage('Infra-Creation') {
             steps {
-               sh 'sudo chmod +x ${env.WORKSPACE}/createstack.sh' 
+               sh "sudo chmod +x ${env.WORKSPACE}/createstack.sh"
                withAWS(credentials: 'AWS_Cred' , region: 'ap-south-1') {
                    sh(script: "${env.WORKSPACE}/createstack.sh --stack-name test" ) 
               }

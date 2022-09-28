@@ -25,7 +25,7 @@ pipeline {
          choice(name: 'ApplicationName', choices: ['pratiktech-dev','pratiktech-stage'])
          string(name: 'stackName',defaultValue: 'eksCluster')
          string(name: 'ProductOwnerEmail',defaultValue: 'argadepp@gmail.com')
-         string(name: 'templateUrl',defaultValue: 'https://cf-templates-nxd3fz7ymt6h-ap-south-1.s3.ap-south-1.amazonaws.com/launch-template.yaml')
+         string(name: 'templateUrl',defaultValue: 'https://cf-templates-g2cqbboygucc-ap-south-1.s3.ap-south-1.amazonaws.com/launch-template.yaml')
     }  
     stages {
         

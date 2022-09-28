@@ -2,7 +2,7 @@
 
 set -x -o errexit -o pipefail
 
-
+echo ${job_root_dir}
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do

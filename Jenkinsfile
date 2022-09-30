@@ -13,7 +13,7 @@ pipeline {
          string(name: 'aws_region', defaultValue: 'ap-south-1' , description: 'AWS Region' )
          string(name: 'stackName',defaultValue: 'asg')
          string(name: 'VPC' , defaultValue: 'vpc-5a0ff131' , description: 'Pass the VPC ID ' )
-         string(name: 'Subnets' , defaultValue: 'subnet-7e36d115,subnet-be0798c5,subnet-8b5105c7')
+         string(name: 'Subnets' , defaultValue: '')
          string(name: 'AmiId' , defaultValue: 'ami-024c319d5d14b463e')
          choice(name: 'InstanceType' , choices: ['t3.micro','t3.small','t3.medium'])
          string(name: 'DNS' , description: 'Enter DNS name ')

@@ -25,7 +25,7 @@ pipeline {
         stage('Infra-Creation') {
             steps {
                 
-               withAWS(credentials: 'AWS_Cred' , region: 'ap-south-1') {
+               withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
                sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters     ParameterKey=VPC,ParameterValue="${VPC}"  ParameterKey=Subnets,ParameterValue="${Subnets}" ParameterKey=InstanceType,ParameterValue="${InstanceType}"  ParameterKey=AmiId,ParameterValue="${AmiId}" ParameterKey=DNS,ParameterValue="${DNS}"  ParameterKey=Alias,ParameterValue="${Alias}" --capabilities CAPABILITY_NAMED_IAM'
                }

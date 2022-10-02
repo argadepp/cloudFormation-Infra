@@ -13,7 +13,8 @@ pipeline {
          string(name: 'aws_region', defaultValue: 'ap-south-1' , description: 'AWS Region' )
          string(name: 'stackName',defaultValue: 'asg')
          string(name: 'VPC' , defaultValue: 'vpc-5a0ff131' , description: 'Pass the VPC ID ' )
-         string(name: 'Subnets' , defaultValue: '')
+         string(name: 'Subnets' , defaultValue: 'subnet-be0798c5')
+         string(name: 'LBSubnets' , defaultValue: 'subnet-7e36d115')
          string(name: 'AmiId' , defaultValue: 'ami-024c319d5d14b463e')
          choice(name: 'InstanceType' , choices: ['t3.micro','t3.small','t3.medium'])
          string(name: 'DNS' , description: 'Enter DNS name ')
@@ -27,7 +28,7 @@ pipeline {
                 
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
-               sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters  ParameterKey=Subnets,ParameterValue="${Subnets}"   ParameterKey=VPC,ParameterValue="${VPC}"  ParameterKey=InstanceType,ParameterValue="${InstanceType}"  ParameterKey=AmiId,ParameterValue="${AmiId}" ParameterKey=DNS,ParameterValue="${DNS}"  ParameterKey=Alias,ParameterValue="${Alias}" --capabilities CAPABILITY_NAMED_IAM'
+               sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters  ParameterKey=Subnets,ParameterValue="${Subnets}" ParameterKey=LBSubnets,ParameterValue="${LBSubnets}"  ParameterKey=VPC,ParameterValue="${VPC}"  ParameterKey=InstanceType,ParameterValue="${InstanceType}"  ParameterKey=AmiId,ParameterValue="${AmiId}" ParameterKey=DNS,ParameterValue="${DNS}"  ParameterKey=Alias,ParameterValue="${Alias}" --capabilities CAPABILITY_NAMED_IAM'
                }
             }
         }

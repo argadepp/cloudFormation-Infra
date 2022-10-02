@@ -27,7 +27,7 @@ pipeline {
                 
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
-               sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters  ParameterKey=Subnets,ParameterValue=""   ParameterKey=VPC,ParameterValue="${VPC}"  ParameterKey=InstanceType,ParameterValue="${InstanceType}"  ParameterKey=AmiId,ParameterValue="${AmiId}" ParameterKey=DNS,ParameterValue="${DNS}"  ParameterKey=Alias,ParameterValue="${Alias}" --capabilities CAPABILITY_NAMED_IAM'
+               sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters  ParameterKey=Subnets,ParameterValue="${Subnets}"   ParameterKey=VPC,ParameterValue="${VPC}"  ParameterKey=InstanceType,ParameterValue="${InstanceType}"  ParameterKey=AmiId,ParameterValue="${AmiId}" ParameterKey=DNS,ParameterValue="${DNS}"  ParameterKey=Alias,ParameterValue="${Alias}" --capabilities CAPABILITY_NAMED_IAM'
                }
             }
         }

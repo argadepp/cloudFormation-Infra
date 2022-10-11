@@ -1,63 +1,30 @@
 [
     {
-        "ParameterKey" : "EnvironmentName",
-        "ParameterValue" :"${environment}" 
+      "ParameterKey": "VPC",
+      "ParameterValue": "${VPC}"
     },
-
     {
-        "ParameterKey":"VpcCIDR",
-        "ParameterValue":"${vpcCIDR}" 
-    } ,
-
+      "ParameterKey": "AmiId",
+      "ParameterValue": "${AmiId}"
+    },
     {
-        "ParameterKey":"PublicSubnet1CIDR",
-        "ParameterValue":"${PublicSubnet1CIDR}" 
-    } ,
-
-    { "ParameterKey":"PublicSubnet2CIDR",
-    "ParameterValue":"${PublicSubnet2CIDR}"  },
-
+      "ParameterKey": "InstanceType",
+      "ParameterValue": "${InstanceType}"
+    },
     {
-        "ParameterKey":"PrivateSubnet1CIDR",
-        "ParameterValue":"${PrivateSubnet1CIDR}" 
+      "ParameterKey": "LBSubnets",
+      "ParameterValue": "${LBSubnets}"
+    },
+    {
+      "ParameterKey": "Subnets",
+      "ParameterValue": "${Subnets}"
+    },
+    {
+      "ParameterKey": "DNS",
+      "ParameterValue": "${DNS}"
+    },
+    {
+      "ParameterKey": "Alias",
+      "ParameterValue": "${Alias}"
     }
-
-    ,
-    {
-        "ParameterKey":"PrivateSubnet2CIDR"
-        ,"ParameterValue":"${PrivateSubnet2CIDR}" 
-    },
-
-    {
-        "ParameterKey":"ClusterName",
-        "ParameterValue":"${ClusterName}" 
-    },
-
-    {
-        "ParameterKey":"ClusterVersion"
-        ,"ParameterValue":"${ClusterVersion}" 
-     } ,
-
-     {
-        "ParameterKey":"Product"
-        ,"ParameterValue":"${Product}"  
-    
-     } ,
-
-     {
-        "ParameterKey":"ApplicationName"
-        ,"ParameterValue":"${ApplicationName}"  }
-   ,
-
-   {
-    "ParameterKey":"ProductOwnerEmail",
-    "ParameterValue":"${ProductOwnerEmail}"  
-    
-   },
-
-   {
-    "ParameterKey":"ImageAmi"
-    ,"ParameterValue":"${nodeAmiId}"
-   }
-
-]   
+  ]

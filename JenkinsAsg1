@@ -28,7 +28,7 @@ pipeline {
                 
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
-               sh 'aws cloudformation "${action}"-stack --template-url "${templateUrl}" --region "${aws_region}" --stack-name "${stackName}" --parameters  file://parameters.json --capabilities CAPABILITY_NAMED_IAM'
+               sh(script: create-stack.sh)
                }
             }
         }

@@ -28,7 +28,7 @@ pipeline {
                 
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
-               sh(script: create-stack.sh)
+               sh(script: "creates-tack.sh")
                }
             }
         }

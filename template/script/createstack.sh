@@ -12,4 +12,4 @@ export VPC
 envsubst < "${WORKSPACE}/script/asg_parameters.json.tmpl" > "${WORKSPACE}/script/parameters.json"
 
 
-cat "${WORKSOPACE}/asg_parameters.json.tmpl"
+cat "${WORKSPACE}/asg_parameters.json.tmpl"

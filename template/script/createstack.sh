@@ -3,7 +3,7 @@
 
 echo "${VPC}"
 
-parameterfilepath="${WORKSPACE}/parameters.json"
+parameterfilepath="${WORKSPACE}/template/parameters.json"
 
 echo VPC = "${VPC}"
 

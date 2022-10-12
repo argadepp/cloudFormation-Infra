@@ -22,17 +22,14 @@ pipeline {
          string(name: 'templateUrl',defaultValue: 'https://cf-templates-g2cqbboygucc-ap-south-1.s3.ap-south-1.amazonaws.com/asg.yaml')
     }  
     stages {
-        stage('Getting Data'){
-        steps{
-        sh 'echo "workspace - ${WORKSPACE}"'
-        }
-        }
+       
         
         stage('Infra-Creation') {
             steps {
                 
-               withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                sh 'sudo chmod +x "${WORKSPACE}/creates-tack.sh"' 
+               withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
+                
                sh(script: "${WORKSPACE}/creates-tack.sh")
                }
             }

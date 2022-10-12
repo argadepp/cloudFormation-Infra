@@ -24,7 +24,7 @@ pipeline {
     stages {
        stage('Getting Data'){
        steps{
-       sh 'chmod +x "${WORKSPACE}/creates-tack.sh"' 
+       sh 'chmod +x "${WORKSPACE}/template/script/createstack.sh"' 
        }
        }
         
@@ -34,7 +34,7 @@ pipeline {
                
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
-               sh(script: "${WORKSPACE}/creates-tack.sh")
+               sh(script: "${WORKSPACE}/template/script/createstack.sh")
                }
             }
         }

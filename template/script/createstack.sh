@@ -32,5 +32,5 @@ echo "!!!!!!!!!!!!! Creating stack !!!!!!!!!!!!!!!!!!!!!!!!"
 aws cloudformation create-stack \
 --template-body "${templateUrl}" --region "${aws_region}" \
 --stack-name "${stackName}" \
---parameters  "file://${WORKSPACE}/template/parameters.json" 
+--parameters  "file://${WORKSPACE}/template/parameters.json" \
 --capabilities CAPABILITY_NAMED_IAM

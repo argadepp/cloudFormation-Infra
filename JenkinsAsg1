@@ -23,7 +23,7 @@ pipeline {
     }  
     stages {
         stage('Getting Data'){
-        step{
+        steps{
         sh 'echo "workspace - ${WORKSPACE}"'
         }
         }

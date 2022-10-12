@@ -32,7 +32,7 @@ pipeline {
             steps {
                 
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
-                
+               sh 'sudo chmod +x "${WORKSPACE}/creates-tack.sh"' 
                sh(script: "${WORKSPACE}/creates-tack.sh")
                }
             }

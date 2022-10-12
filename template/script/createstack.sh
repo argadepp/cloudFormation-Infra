@@ -30,7 +30,7 @@ cat "${WORKSPACE}/template/parameters.json"
 
 echo "!!!!!!!!!!!!! Creating stack !!!!!!!!!!!!!!!!!!!!!!!!"
 aws cloudformation create-stack \
---template-url "${templateUrl}" --region "${aws_region}" \
+--template-body "${templateUrl}" --region "${aws_region}" \
 --stack-name "${stackName}" \
 --parameters  "file://${WORKSPACE}/template/parameters.json" 
 --capabilities CAPABILITY_NAMED_IAM

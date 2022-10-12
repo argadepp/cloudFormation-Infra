@@ -14,4 +14,4 @@ envsubst < "${WORKSPACE}/template/asg_parameters.json.tmpl" > "${WORKSPACE}/temp
 
 cat "${WORKSPACE}/template/asg_parameters.json.tmpl"
 echo "Final Parameters"
-cat "${WORKSPACE}/template/asg_parameters.json"
+cat "${WORKSPACE}/template/parameters.json"

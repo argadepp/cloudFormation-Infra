@@ -33,7 +33,7 @@ pipeline {
                 
                withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
                 
-               sh(script: "creates-tack.sh")
+               sh(script: "${WORKSPACE}/creates-tack.sh")
                }
             }
         }

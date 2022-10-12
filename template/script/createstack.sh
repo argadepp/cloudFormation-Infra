@@ -9,7 +9,7 @@ echo VPC = "${VPC}"
 
 export VPC
 
-envsubst < "${WORKSPACE}/script/asg_parameters.json.tmpl" > "${WORKSPACE}/script/parameters.json"
+envsubst < "${WORKSPACE}/template/asg_parameters.json.tmpl" > "${WORKSPACE}/script/parameters.json"
 
 
-cat "${WORKSPACE}/asg_parameters.json.tmpl"
+cat "${WORKSPACE}/template/asg_parameters.json.tmpl"
